@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Staff Management/fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+                <strong>BS</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" >
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color:white ;" >
+                        <i class="fa fa-briefcase"></i>
+                        About
+                    </a>
+                    <a href="#pageMenu" style="color:white;">
+                        <i class="fa-solid fa-file"></i>
+                            Pages
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color:white;">
+                        <i class="fa fa-link"></i>
+                            Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color:white;">
+                        <i class="fa fa-paperclip"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color:white;">
+                        <i class="fa fa-paper-plane"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navber-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                            <span>Toggle Sidebar</span>
+                        </button>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="card text-content">
+                    <div class="card-header myCardHeader">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="text-left text-primary font-weight-bold">Staff List</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button class="btn btn-primary" id="btnAdd" data-toggle="modal" data-target="#myModal">Add Staff</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col"></div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="staff type" id="searchName">
+                                    <div class="input-group-prepend">
+                                        <button id="btnFindStaff" onclick="searchStaff()"><span class="input-group-text">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+                                    <button class="btnn btn-danger" onclick="stopSearch()">Stop Search</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-hover myTable">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th class="nowrap">
+                                        <span class="mr-1">Account</span>
+                                        <i class="fa fa-arrow-up" id="arrangeAscend"></i>
+                                        <i class="fa fa-arrow-down" id="arrangeDescend"></i>
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Number of Work Days</th>
+                                    <th>Title</th>
+                                    <th>Total Salary</th>
+                                    <th>Type</th>
+                                    <th><em class="fa fa-cog"></em></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableList">
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer myCardFooter">
+                        <nav>
+                            <ul class="pagination justify-content-center" id="ulPhanTrang">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="head-from mb-0">
+                    <h2 id="header-title">Log In</h2>
+                </header>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="tk" id="accountStaff" class="form-control input-sm" placeholder="account">
+                            </div>
+                            <span class="sp-thongbao" id="tbAccount"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-address-book"></i>
+                                    </span>
+                                </div>
+                                <input type="name" name="name" id="name" class="form-control input-sm" placeholder="name">
+                            </div>
+                            <span class="sp-thongbao" id="tbName"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="email">
+                            </div>
+                            <span class="sp-thongbao" id="tbEmail"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" id="password" class="form-control input-sm" placeholder="password">
+                            </div>
+                            <span class="sp-thongbao" id="tbPassword"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </span>
+                                    <input type="text" name="workday" id="datepicker" class="form-control" placeholder="number of work day">
+                                </div>
+                            </div>
+                            <span class="sp-thongbao" id="tbWorkDay"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-money-bill"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="baseSalary" id="baseSalary" class="form-control input-sm" placeholder="base salary">
+                            </div>
+                            <span class="sp-thongbao" id="tbBaseSalary"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-briefcase"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" id="title">
+                                    <option value="">Choose title</option>
+                                    <option value="boss">Boss</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="staff">Staff</option>
+                                </select>
+                            </div>
+                            <span class="sp-thongbao" id="tbTitle"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="workTime" id="workTime" class="form-control input-sm" placeholder="number hours of work">
+                            </div>
+                            <span class="sp-thongbao" id="tbWorkTime"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" id="model-footer">
+                    <button id="btnAddStaff" type="button" class="btn btn-success" onclick="addStaff()">Add User</button>
+                    <button id="btnUpdate" type="button" class="btn btn-success" data-dismiss="modal" onclick="updateStaff()">Update</button>
+                    <button id="btnClose" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" ></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#sidebarCollapse').on('click',function(){
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
+    <script src="staffModel.js"></script>
+    <script src="validatiorModel.js"></script>
+    <script src="staffController.js"></script>
+    <script src="main.js"></script>
+   
+</body>
+</html>
