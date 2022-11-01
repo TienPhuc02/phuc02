@@ -68,11 +68,10 @@ function deleteStaff(account){
 }
 
 
-function editStaff(){
+function editStaff(account){
     var position =findPosition(account,staffList);
     var staff=staffList[position];
     showBackToFrom(staff);
-    
 }
 
 function updateStaff(){

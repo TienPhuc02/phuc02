@@ -31,7 +31,6 @@ var showStaffList=function(list){
         <td>${currentStaff.account}</td>
         <td>${currentStaff.name}</td>
         <td>${currentStaff.email}</td>
-        <td>${currentStaff.password}</td>
         <td>${currentStaff.workday}</td>
         <td>${currentStaff.totalSalary()}</td>
         <td>${currentStaff.type()}</td>
@@ -91,3 +90,21 @@ const showSearchingStaffList=function(staffSearching){
     }
     document.getElementById("tableList").innerHTML=contentHTML;
 }
+// var findPosition =function(string,array){
+//     return array.findIndex(function(staff){
+//         return staff.account===string;
+//     });
+// };
+
+// var reset = function(){
+//     document.getElementById("account").value="";
+//     document.getElementById("name").value="";
+//     document.getElementById("email").value="";
+//     document.getElementById("password").value="";
+//     document.getElementById("datepicker").value="";
+//     document.getElementById("baseSalary").value="";
+//     document.getElementById("workTime").value="";
+
+//     document.getElementById("tbAccount").innerText="";
+
+// }

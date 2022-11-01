@@ -11,18 +11,18 @@ var ValidationStaff =function(){
         }
     };
     // kiểm tra id trùng lặp
-    this.checkDuplicateId=function(newStudent,studentList){
-        var index= studentList.findIndex(function(student){
-            return student.studentId == newStudent.studentId;// tìm ra id của student khi duyệt qua vị trí phần tử đầu tiên
-        });
-        if(index==-1){
-            document.getElementById("spanId").innerText="";// nếu không trùng thì không nói gì
-            return true;
-        }else{
-            document.getElementById("spanId").innerText="Your id has been used!!!";// trùng thì báo đã được sử dụng
-            return false;
-        }
-    };
+    // this.checkDuplicateId=function(newStudent,studentList){
+    //     var index= studentList.findIndex(function(student){
+    //         return student.studentId == newStudent.studentId;// tìm ra id của student khi duyệt qua vị trí phần tử đầu tiên
+    //     });
+    //     if(index==-1){
+    //         document.getElementById("spanId").innerText="";// nếu không trùng thì không nói gì
+    //         return true;
+    //     }else{
+    //         document.getElementById("spanId").innerText="Your id has been used!!!";// trùng thì báo đã được sử dụng
+    //         return false;
+    //     }
+    // };
     // kiểm tra email
     this.checkEmail=function(idTarget,idMessage){
         var valueToCheck=document.getElementById(idTarget).value.trim();
@@ -72,7 +72,7 @@ var ValidationStaff =function(){
     };
     this.checkPassword= function(idTarget,idMessage){
         var valueToCheck=document.getElementById(idTarget).value.trim();
-        var validPass=/[a-zA-Z0-9]{8,}/;
+        var validPass=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
         if(validPass.test(valueToCheck)){
             document.getElementById(idMessage).innerText="";
             return true;
@@ -122,8 +122,20 @@ var ValidationStaff =function(){
             return false;
         }
     };
-    
 };
+    // this.checkDuplicateId=function(newStaff,staffList){
+    //     var index= staffList.findIndex(function(staff){
+    //         return staff.account == newStaff.account;// tìm ra id của student khi duyệt qua vị trí phần tử đầu tiên
+    //     });
+    //     if(index==-1){
+    //         document.getElementById("account").innerText="";// nếu không trùng thì không nói gì
+    //         return true;
+    //     }else{
+    //         document.getElementById("tbAccount").innerText="Your id has been used!!!";// trùng thì báo đã được sử dụng
+    //         return false;
+    //     }
+    // };
+    
     // //===========================================================================
 
     
